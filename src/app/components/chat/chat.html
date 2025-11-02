@@ -1,0 +1,24 @@
+<div class="chat-container">
+  <div class="chat-box" #chatBox>
+    <div *ngFor="let msg of messages"
+         [ngClass]="{'text-end': msg.sender === 'user', 'text-start': msg.sender === 'ai'}">
+      <div class="chat-bubble" [ngClass]="msg.sender">
+        <pre class="whitespace-pre-wrap">{{ msg.text }}</pre>
+      </div>
+    </div>
+
+    <div *ngIf="isLoading" class="loading-text">
+      🤖 AI is thinking...
+    </div>
+  </div>
+
+  <div class="input-box">
+    <input
+      type="text"
+      [(ngModel)]="userInput"
+      placeholder="Type your message..."
+      (keyup.enter)="sendMessage()"
+    />
+    <button (click)="sendMessage()">Send</button>
+  </div>
+</div>

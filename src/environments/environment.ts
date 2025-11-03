@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  apiUrl: 'https://ai-agent-backend-1pbw.onrender.com' // 👈 replace with your deployed backend URL
+  apiUrl: 'http://localhost:8000', // your FastAPI backend running locally
+  ollamaUrl: 'http://localhost:11434/api/generate'
 };
